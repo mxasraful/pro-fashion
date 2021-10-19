@@ -1,0 +1,31 @@
+
+.genderPageBanner{
+    width: 100%;
+    height: 550px;
+    background-position: center;
+    background-size: cover;
+}
+
+.genderPageBannerTitle{
+    padding-top: 250px;
+}
+
+.GenderPageCategory{
+    width: 100%;
+}
+
+.react-multi-carousel-item{
+    width: 275px  !important;
+    height: 390px !important;
+    padding: 1px;
+    margin: 0 10px 20px 0;
+}
+
+.genderCategoryItem img{
+    width: auto !important;
+    max-height: 338px !important;
+}
+
+.slick-next:before, .slick-prev:before{
+    color: #000;
+}

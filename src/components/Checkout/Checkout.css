@@ -1,0 +1,16 @@
+
+.checkoutSummaryItems > div{
+    border-bottom: 1px solid #aaa;
+}
+
+.checkoutSummaryItems > div:last-child{
+    border-bottom: none;
+}
+
+.addressActive{
+    border: 1px solid #198754 !important;
+}
+
+.accordion-button label{
+    cursor: pointer !important;
+}

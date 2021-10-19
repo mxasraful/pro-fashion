@@ -1,0 +1,6 @@
+.paySuccessMsg{
+    width: 100%;
+    height: 100%;
+    background: #b4f99cb0;
+    backdrop-filter: blur(3px)
+}

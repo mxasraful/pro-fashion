@@ -1,0 +1,143 @@
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .navbar-collapse {
+        display: none !important;
+    }
+
+    .navbar-toggler {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .navbar-collapse {
+        display: none !important;
+    }
+
+    .navbar-toggler {
+        display: none !important;
+    }
+
+    .productDetailText {
+        padding-left: 12px !important;
+    }
+
+    .home-big-categories a {
+        width: 90% !important;
+        margin-left: 5%;
+        height: 90vh;
+        margin-bottom: 50px;
+    }
+
+    .productOptions {
+        opacity: 1 !important;
+    }
+
+    .responsiveSearchBtn {
+        display: inline-block;
+    }
+
+    .slick-arrow {
+        display: none !important;
+    }
+
+    .loginComp .card {
+        width: 300px !important;
+    }
+
+    .carousel-caption {
+        display: block !important;
+    }
+
+    .carousel-caption h3{
+        color: rgb(255 44 44) !important;
+    }
+
+}
+
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+    .navbar-collapse {
+        display: none !important;
+    }
+
+    .navbar-toggler {
+        display: none !important;
+    }
+
+    .productDetailText {
+        padding-left: 12px !important;
+    }
+
+    .home-big-categories a {
+        width: 90% !important;
+        margin-left: 5%;
+        height: 90vh;
+        margin-bottom: 50px;
+    }
+
+    .responsiveSearchBtn {
+        display: inline-block;
+    }
+
+    .slick-arrow {
+        display: none !important;
+    }
+
+    .loginComp .card {
+        width: 300px !important;
+    }
+
+    .carousel-caption {
+        display: block !important;
+    }
+
+    .carousel-caption h3{
+        color: rgb(255 44 44) !important;
+    }
+
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-pixel-ratio: 2) {
+
+    .navbar-collapse {
+        display: none !important;
+    }
+
+    .navbar-toggler {
+        display: none !important;
+    }
+
+    .productDetailText {
+        padding-left: 12px !important;
+    }
+
+    .productOptions {
+        opacity: 1 !important;
+    }
+
+    .responsiveSearchBtn {
+        display: inline-block;
+    }
+
+    .slick-arrow {
+        display: none !important;
+    }
+
+    .loginComp .card {
+        width: 300px !important;
+    }
+
+    .carousel-caption {
+        display: block !important;
+    }
+
+    .carousel-caption h3{
+        color: rgb(255 44 44) !important;
+    }
+
+}

@@ -1,0 +1,16 @@
+
+
+.homeProductsMenuItems span{
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hpmActive{
+    border-bottom: 2px solid rgb(44, 44, 44);
+}
+
+.hpLoader{
+    padding-top: 35px;
+    padding-bottom: 100px;
+}

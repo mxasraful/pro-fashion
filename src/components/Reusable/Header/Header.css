@@ -1,0 +1,37 @@
+
+.active{
+    color: rgb(0, 0, 0) !important;
+}
+
+.active svg{
+    color: rgb(0, 0, 0) !important;
+}
+
+.headerSearchInput{
+    border: none;
+    border-bottom: 2px solid #9b9b9b;
+    outline: none;
+    font-size: 12px;
+    padding: 3px 10px;
+    width: 200px;
+    transition: .3s;
+}
+
+.headerSearchInput:focus{
+    border-bottom: 2px solid #444444;
+}
+
+.headerSearchSubmit{
+    border: none;
+    background: none !important;
+    margin-left: -30px;
+    padding-bottom: 5px;
+}
+
+.header-categories > a{
+    text-decoration: none;
+}
+
+.responsiveSearchBtn{
+    display: none;
+}

@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;300;400;500&family=Nunito:wght@200;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Sans:wght@400;700&display=swap');
+
+.btn-outline-danger {
+    background-color: rgba(255, 22, 22, 0.089);
+}
+
+.btn-outline-secondary {
+    background-color: rgba(172, 172, 172, 0.171);
+}
+
+.btn-outline-success {
+    background-color: #19875425;
+}
+
+.btn-outline-info {
+    background-color: #0DCAF025;
+}
+
+.btn-outline-warning {
+    background-color: #ffc10725;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    background: #aaa !important;
+    opacity: .5 !important;
+    width: 50px !important;
+}
+
+.carousel-control-prev:active, .carousel-control-next:active {
+    opacity: .4 !important;
+}

@@ -1,0 +1,17 @@
+.homeBigGenderItems a {
+    text-decoration: none !important;
+    color: #fff;
+}
+
+.homeBigGenderItems a div {
+    border-radius: 10px;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    transition: .4s !important;
+}
+
+.homeBigGenderItems a div:hover {
+    background-size: 103% !important;
+    opacity: .7;
+}

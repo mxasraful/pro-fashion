@@ -1,0 +1,16 @@
+
+.passVisibleBtn{
+    border: 1px solid #CED4DA;
+    border-left: none;
+    border-radius: 0 3px 3px 0;
+}
+
+.passVisibleBtn:hover{
+    border: 1px solid #CED4DA;
+    border-left: none;
+}
+
+#loginPassInput{
+    border-radius: 3px 0 0 3px;
+    border-right: none;
+}
