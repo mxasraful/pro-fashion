@@ -1,4 +1,3 @@
-
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 
     .navbar-collapse {
@@ -51,7 +50,7 @@
         display: block !important;
     }
 
-    .carousel-caption h3{
+    .carousel-caption h3 {
         color: rgb(255 44 44) !important;
     }
 
@@ -95,8 +94,78 @@
         display: block !important;
     }
 
-    .carousel-caption h3{
+    .carousel-caption h3 {
         color: rgb(255 44 44) !important;
+    }
+
+}
+
+
+@media only screen and (max-width: 575px) {
+
+    .navbar-collapse {
+        display: none !important;
+    }
+
+    .navbar-toggler {
+        display: none !important;
+    }
+
+    .productDetailText {
+        padding-left: 12px !important;
+    }
+
+    .productOptions {
+        opacity: 1 !important;
+    }
+
+    .responsiveSearchBtn {
+        display: inline-block;
+    }
+
+    .slick-arrow {
+        display: none !important;
+    }
+
+    .loginComp .card {
+        width: 300px !important;
+    }
+
+    .carousel-caption {
+        display: block !important;
+    }
+
+    .carousel-caption h3 {
+        color: rgb(255 44 44) !important;
+    }
+
+    .productDetailRelatedProductItems{
+        padding-left: 0 !important;
+    }
+
+    .productDetailRelatedProductItems > div > div {
+        width: 200px !important;
+    }
+
+    .productComp{
+        width: 90%;
+        margin: 0 auto !important;
+    }
+
+    .carousel-control-prev, .carousel-control-next{
+        width: 20px !important;
+    }
+
+    .productFullScreen{
+        display: none;
+    }
+
+    .mainFooter .container {
+        display: block !important;
+    }
+
+    .mainFooter .container h6{
+        margin-bottom: 10px !important;
     }
 
 }
@@ -136,7 +205,7 @@ only screen and (min-device-pixel-ratio: 2) {
         display: block !important;
     }
 
-    .carousel-caption h3{
+    .carousel-caption h3 {
         color: rgb(255 44 44) !important;
     }
 

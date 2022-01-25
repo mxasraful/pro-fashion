@@ -11,8 +11,6 @@ const Dashboard = () => {
     const {} = useAuth()
 
 
-
-
     const [displayName, setDisplayName] = useState(null)
     const [email, setEmail] = useState(null)
     const [emailInvalid, setEmailInvalid] = useState(false)

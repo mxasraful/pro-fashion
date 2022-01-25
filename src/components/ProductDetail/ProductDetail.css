@@ -48,18 +48,18 @@
     outline: none !important;
 }
 
-.pd-detail-featured-img{
+.pd-detail-featured-img {
     width: 100%;
     height: 400px;
     background-color: #F1F1F1;
 }
 
-.pd-detail-sleeted-img{
+.pd-detail-sleeted-img {
     width: auto !important;
     max-height: 400px !important;
 }
 
-.quantityUpDownBtn{
+.quantityUpDownBtn {
     width: 32px;
 }
 
@@ -81,7 +81,41 @@
     border-bottom: 1px solid #000;
 }
 
-.productDetailRelatedProductsTitle{
+.productDetailRelatedProductsTitle {
     font-family: 'Noto Sans JP', sans-serif;
 }
 
+.productDetailRelatedProductItems {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.productDetailRelatedProductItems>div {
+    width: auto !important;
+    display: flex !important;
+}
+
+.productDetailRelatedProductItems::-webkit-scrollbar {
+    width: 5px;
+    height: 7px;
+    border-radius: 4px;
+}
+
+/* Track */
+.productDetailRelatedProductItems::-webkit-scrollbar-track {
+    background: #fff3f3;
+    border-radius: 4px;
+}
+
+/* Handle */
+.productDetailRelatedProductItems::-webkit-scrollbar-thumb {
+    background: rgb(209, 209, 209);
+    border-radius: 4px;
+}
+
+/* Handle on hover */
+.productDetailRelatedProductItems::-webkit-scrollbar-thumb:hover {
+    background: rgb(151, 151, 151);
+    border-radius: 4px;
+}

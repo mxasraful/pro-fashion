@@ -113,8 +113,8 @@ const Auth = () => {
         updateProfile(fireAuth?.currentUser, updateInfo)
             .then(updatedSData => {
                 const data = updatedSData?.user
-                console.log("local", updatedSData)
-                localStorage.setItem('pro-fashion-user-id', data.accessToken)
+                console.log("local", currentUser?.accessToken)
+                // localStorage.setItem('pro-fashion-user-id', currentUser?.accessToken)
                 setUser(filterUser(data))
                 window.location.reload()
                 console.log(data)
@@ -158,6 +158,8 @@ const Auth = () => {
 
         }
     }, [])
+
+    console.log(fireAuth.currentUser)
 
     return {
         user,

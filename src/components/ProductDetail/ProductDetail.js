@@ -51,7 +51,7 @@ const ProductDetail = ({ modal, modalData }) => {
     const notify = () => toast(
         <div class="">
             <span>Item added in cart.</span>
-            <Link to='/cart' className="btn btn-outline-info btn-sm text-center ms-4 px-3 ">View Cart</Link>
+            <a href='/cart' className="btn btn-outline-info btn-sm text-center ms-4 px-3 ">View Cart</a>
         </div>
     );
 
@@ -217,10 +217,10 @@ const ProductDetail = ({ modal, modalData }) => {
                                         {
                                             relatedProducts ?
                                                 <div className="productDetailRelatedProductItems container">
-                                                    <div className="row">
+                                                    <div className="">
                                                         {
                                                             relatedProducts?.map(dt => (
-                                                                <div className="col-sm-3 mb-5">
+                                                                <div className="col-3 me-3 productDetailRelatedProductItem mb-5">
                                                                     <Product productData={dt} />
                                                                 </div>
                                                             ))}

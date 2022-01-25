@@ -22,11 +22,10 @@
 }
 
 .carousel-control-prev, .carousel-control-next {
-    background: #aaa !important;
-    opacity: .5 !important;
+    background-color: #7c7b7b80;
     width: 50px !important;
 }
 
 .carousel-control-prev:active, .carousel-control-next:active {
-    opacity: .4 !important;
+    background-color: #7c7b7b8e;
 }
