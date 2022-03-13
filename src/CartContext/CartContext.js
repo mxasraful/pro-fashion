@@ -18,14 +18,18 @@ const CartDt = () => {
     const [taxMoney, setTaxMoney] = useState(0)
     const [totalMoney, setTotalMoney] = useState(0)
 
-    console.log(subtotalMoney, shipMoney, taxMoney, totalMoney)
-
     const setItem = (data) => {
         setCartLoader(true)
         if (cartItems?.length) {
             const validation = cartItems.find(dt => dt.id === data.id)
             if (validation) {
-
+                if (data.size === validation.size) {
+                    const cartData = cartItems.filter(dt => dt.id !== data.id)
+                    localStorage.setItem("pf-cart", JSON.stringify([data, ...cartData]))
+                } else {
+                    localStorage.setItem("pf-cart", JSON.stringify([...cartItems, data]))                    
+                }
+                console.log(data)
             } else {
                 localStorage.setItem("pf-cart", JSON.stringify([...cartItems, data]))
             }
@@ -69,8 +73,11 @@ const CartDt = () => {
 
     useEffect(() => {
         getCartItems()
-        calculateMoney()
     }, [])
+
+    useEffect(() => {
+        calculateMoney()
+    }, [cartItems, subtotalMoney, shipMoney, taxMoney, totalMoney])
 
     const calculateMoney = () => {
         const subtotal = cartItems.reduce((orderTotal, item) => orderTotal + item.price * item.qty, 0)
