@@ -1,39 +1,60 @@
+
 import jwtDecode from "jwt-decode";
 import { Route } from "react-router";
-import { Redirect } from "react-router-dom";
 import { useAuth } from "../../../auth/auth";
 
 // Privat route create and export
 const PrivateRoute = ({ children, ...rest }) => {
     const currentUserToken = localStorage.getItem("pro-fashion-user-id")
-    const currentUser = jwtDecode(currentUserToken)
+    const currentUser = currentUserToken && jwtDecode(currentUserToken)
     const user = useAuth().user
-    console.log(currentUserToken)
-    console.log(currentUser)
-    console.log(user)
-
-    console.log(children)
 
     return (
         <Route
             {...rest}
             render={({ location }) =>
-                currentUserToken ? (
-                    user && (
+                localStorage.getItem("pro-fashion-user-id") ? (
+                    user ? (
                         <>
                             {
                                 currentUser.email === user?.email ?
                                     children
                                     :
-                                    window.location.replace(`/login?for=${rest.location.pathname}`)
+                                    <>
+                                        In use auth
+                                        window.location.replace(`/login?for=${rest.location.pathname}`)
+                                    </>
                             }
                         </>
                     )
+                        :
+                        <>
+                            User Not Found!
+                        </>
                 ) : (
-                    window.location.replace(`/login?for=${rest.location.pathname}`)
+                    <>
+                        {
+                            window.location.replace(`/login?for=${rest.location.pathname}`)
+                        }
+                    </>
                 )
             }
         />
+        // <Route
+        //     {...rest}
+        //     render={({ location }) =>
+        //         user ? (
+        //             children
+        //         ) : (
+        //             <Redirect
+        //                 to={{ 
+        //                     pathname: "/login",
+        //                     state: { from: location }
+        //                 }}
+        //             />
+        //         )
+        //     }
+        // />
     );
 }
 

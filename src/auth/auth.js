@@ -2,7 +2,6 @@ import { createContext, useContext, useEffect, useState } from "react";
 import firebase from 'firebase/compat/app';
 import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import firebaseConfig from "../firebase.config";
-import { useHistory } from "react-router";
 import jwtDecode from "jwt-decode";
 
 firebase.initializeApp(firebaseConfig)
@@ -26,8 +25,6 @@ const Auth = () => {
     const [updateProfileErr, setUpdateProfileErr] = useState(null)
 
     const redirectUrl = window.location.search.split('=')[1]
-
-    const history = useHistory()
 
     const fireAuth = getAuth()
     const currentUser = fireAuth.currentUser
@@ -75,7 +72,6 @@ const Auth = () => {
                     })
                     .catch((updateNameError) => {
                         setAuthLoading(false)
-                        console.log(updateNameError)
                     })
             })
             .catch(error => {
@@ -108,29 +104,24 @@ const Auth = () => {
     // Update user info
     const updateUserInfo = (updateInfo) => {
         setUpdateProfileErr(null)
-        console.log(updateInfo)
-        console.log(fireAuth?.currentUser)
         updateProfile(fireAuth?.currentUser, updateInfo)
             .then(updatedSData => {
                 const data = updatedSData?.user
-                console.log("local", currentUser?.accessToken)
-                // localStorage.setItem('pro-fashion-user-id', currentUser?.accessToken)
+                localStorage.setItem('pro-fashion-user-id', currentUser?.accessToken)
                 setUser(filterUser(data))
                 window.location.reload()
-                console.log(data)
             })
             .catch((updateNameError) => {
                 setUpdateProfileErr(updateNameError.message)
-                console.log(updateNameError)
             })
     }
 
     // Path Redirect
     const pathRedirect = () => {
         if (redirectUrl) {
-            history.replace(redirectUrl)
+            window.location.replace(redirectUrl)
         } else {
-            history.replace('/')
+            window.location.replace('/')
         }
     }
 
@@ -158,8 +149,6 @@ const Auth = () => {
 
         }
     }, [])
-
-    console.log(fireAuth.currentUser)
 
     return {
         user,

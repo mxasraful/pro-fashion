@@ -37,8 +37,6 @@ const UpdateProfile = () => {
         }
     }
 
-    console.log(displayName, email)
-
     return (
         <div class="modal fade updateProfileModal" id="accEditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">

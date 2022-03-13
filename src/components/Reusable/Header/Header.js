@@ -27,7 +27,6 @@ const Header = () => {
                 setWomenCategories(forWomen)
             })
             .catch(err => {
-                console.log(err)
             })
     }, [])
 

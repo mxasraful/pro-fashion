@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { useCart } from '../../CartContext/CartContext';
 import Product from '../Reusable/Product/Product';
@@ -18,7 +18,6 @@ const ProductDetail = ({ modal, modalData }) => {
     const { setItem } = useCart()
 
     const { pdId } = useParams()
-    const path = window.location.pathname
 
     useEffect(() => {
         if (modal) {
@@ -39,7 +38,6 @@ const ProductDetail = ({ modal, modalData }) => {
                             .then(dt => {
                                 const dta = dt.filter(pd => pd.id !== data.id)
                                 setRelatedProducts(dta.sort(() => Math.random() - 0.5).splice(0, 4))
-                                console.log(dta)
                             })
                     }
                 })

@@ -20,7 +20,7 @@ const Login = () => {
                 window.location.replace('/')
             }
         }
-    }, [])
+    }, [redirectUrl])
 
     return (
         <div className="loginComp">

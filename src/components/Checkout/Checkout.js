@@ -21,7 +21,7 @@ const Checkout = () => {
             {
                 successOrder ?
                     <div className="orderSuccessMessage d-flex justify-content-center align-items-center" style={{margin: "20vh 0"}}>
-                        <div className="w-25 card rounded text-center">
+                        <div className="w-25 card rounded text-center py-4">
                             <div className="card-body">
                                 <h4 className="mb-5">Order Placed Successful.</h4>
                                 <a href="/" className="btn btn-outline-info px-5">Continue Shopping</a>
@@ -35,7 +35,6 @@ const Checkout = () => {
                             <div className="checkoutLoader text-center position-absolute w-100 h-100 bg-light" style={{ top: "0", height: "100vh", left: "0", zIndex: "1000000000000000000000000000000" }}>
                                 <div class="spinner-border text-secondary" style={{ marginTop: "48vh" }} role="status">
                                     <span class="visually-hidden">Loading...</span>
-
                                 </div>
                             </div>
                         }

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { flushSync } from 'react-dom';
 import { useState } from 'react/cjs/react.development';
 import { useAuth } from '../../../auth/auth';
 
@@ -72,7 +71,6 @@ const AddAddress = ({ setAddressAdded }) => {
                 }
             })
             .catch(err => {
-                console.log(err)
                 setLoading(false)
             })
         e.preventDefault()

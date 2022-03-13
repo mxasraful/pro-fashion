@@ -17,6 +17,8 @@ const Cart = () => {
     // Cart item deleted notify
     const notify = () => toast("Cart item deleted.");
 
+    console.log(subtotalMoney, shipMoney, taxMoney, totalMoney)
+
 
     return (
         <div className="cartComp">

@@ -18,6 +18,8 @@ const CartDt = () => {
     const [taxMoney, setTaxMoney] = useState(0)
     const [totalMoney, setTotalMoney] = useState(0)
 
+    console.log(subtotalMoney, shipMoney, taxMoney, totalMoney)
+
     const setItem = (data) => {
         setCartLoader(true)
         if (cartItems?.length) {
@@ -64,15 +66,11 @@ const CartDt = () => {
         setCartLoader(false)
         calculateMoney()
     }
-    // 
 
     useEffect(() => {
         getCartItems()
-    }, [])
-
-    useEffect(() => {
         calculateMoney()
-    }, [cartItems])
+    }, [])
 
     const calculateMoney = () => {
         const subtotal = cartItems.reduce((orderTotal, item) => orderTotal + item.price * item.qty, 0)

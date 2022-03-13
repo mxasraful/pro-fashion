@@ -4,12 +4,8 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react/cjs/react.development';
 import { useAuth } from '../../auth/auth';
 import './Dashboard.css'
-import UpdateProfile from './UpdateProfile/UpdateProfile';
 
 const Dashboard = () => {
-
-    const {} = useAuth()
-
 
     const [displayName, setDisplayName] = useState(null)
     const [email, setEmail] = useState(null)
@@ -43,8 +39,6 @@ const Dashboard = () => {
             })
         }
     }
-
-    console.log(displayName, email)
 
 
     return (

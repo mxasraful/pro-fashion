@@ -11,7 +11,6 @@ const CheckoutShipping = ({ setPayment, addressAdded, setAddressAdded }) => {
 
     const [loading, setLoading] = useState(false)
     const [fetchError, serFetchError] = useState(false)
-    const [proceedPayErr, setProceedPay] = useState(null)
 
     const [haveAddress, setHaveAddress] = useState(true)
     const [userAddressValue, setUserAddressValue] = useState(null)
@@ -27,7 +26,7 @@ const CheckoutShipping = ({ setPayment, addressAdded, setAddressAdded }) => {
             if (haveAddress) {
                 setPayment(true)
             } else {
-
+                setPayment(false)
             }
         } else {
 
@@ -60,7 +59,7 @@ const CheckoutShipping = ({ setPayment, addressAdded, setAddressAdded }) => {
     // Hide Address added message
     useEffect(() => {
         setTimeout(() => setAddressAdded(false), 4000)
-    }, [addressAdded])
+    }, [setAddressAdded])
 
     return (
         <div className="row">
@@ -127,7 +126,6 @@ const CheckoutShipping = ({ setPayment, addressAdded, setAddressAdded }) => {
                                             </div>
                                         </div>
                                     </div>
-
                                     <div className="mt-5 text-light">
                                         <button onClick={prosedToPay} className="checkoutPaymentBtn btn btn-outline-info px-5 w-100 py-2">
                                             <span class="me-2">Proceed to Pay</span>
@@ -136,9 +134,18 @@ const CheckoutShipping = ({ setPayment, addressAdded, setAddressAdded }) => {
                                     </div>
                                 </div>
                                 :
-                                <div>
-                                    <div className="text-center py-5">Don't have any item in cart.</div>
-                                </div>
+                                <>
+                                    {
+                                        fetchError ?
+                                            <div className="text-center">
+                                                <h6>We could not get data from the database.</h6>
+                                            </div>
+                                            :
+                                            <div>
+                                                <div className="text-center py-5">Don't have any item in cart.</div>
+                                            </div>
+                                    }
+                                </>
                         }
                     </div>
                 </div>
