@@ -1,7 +1,6 @@
 import { PencilIcon } from '@primer/octicons-react';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react/cjs/react.development';
 import { useAuth } from '../../auth/auth';
 import './Dashboard.css'
 

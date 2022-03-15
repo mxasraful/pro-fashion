@@ -1,6 +1,5 @@
 import { ArrowRightIcon } from '@primer/octicons-react';
-import React, { useEffect } from 'react';
-import { useState } from 'react/cjs/react.development';
+import React, { useEffect, useState } from 'react';
 import { useAuth } from '../../../auth/auth';
 import { useCart } from '../../../CartContext/CartContext';
 import AddAddress from '../AddAddress/AddAddress';

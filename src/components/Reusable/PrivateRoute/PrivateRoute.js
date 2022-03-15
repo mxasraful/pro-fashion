@@ -1,4 +1,3 @@
-
 import jwtDecode from "jwt-decode";
 import { Route } from "react-router";
 import { useAuth } from "../../../auth/auth";
@@ -40,21 +39,6 @@ const PrivateRoute = ({ children, ...rest }) => {
                 )
             }
         />
-        // <Route
-        //     {...rest}
-        //     render={({ location }) =>
-        //         user ? (
-        //             children
-        //         ) : (
-        //             <Redirect
-        //                 to={{ 
-        //                     pathname: "/login",
-        //                     state: { from: location }
-        //                 }}
-        //             />
-        //         )
-        //     }
-        // />
     );
 }
 

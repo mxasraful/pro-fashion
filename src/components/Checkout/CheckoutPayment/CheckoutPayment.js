@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react/cjs/react.development';
+import React, { useState } from 'react';
 import PaymentCard from './PaymentCard/PaymentCard';
 import './CheckoutPayment.css';
 import { useCart } from '../../../CartContext/CartContext';
