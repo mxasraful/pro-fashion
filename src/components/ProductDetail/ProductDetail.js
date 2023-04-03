@@ -24,7 +24,7 @@ const ProductDetail = ({ modal, modalData }) => {
             setProduct(modalData)
             setImage(modalData?.imgs[0])
         } else {
-            fetch(`https://arcane-sierra-30035.herokuapp.com/product/${pdId}`)
+            fetch(`http://localhost:3001/product/${pdId}`)
                 .then(res => res.json())
                 .then(data => {
                     setProduct(data)
@@ -33,7 +33,7 @@ const ProductDetail = ({ modal, modalData }) => {
                     if (modal) {
 
                     } else {
-                        fetch(`https://arcane-sierra-30035.herokuapp.com/products/${data?.for}/${data?.categories}`)
+                        fetch(`http://localhost:3001/products/${data?.for}/${data?.categories}`)
                             .then(res => res.json())
                             .then(dt => {
                                 const dta = dt.filter(pd => pd.id !== data.id)

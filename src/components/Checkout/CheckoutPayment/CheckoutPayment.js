@@ -20,7 +20,7 @@ const CheckoutPayment = ({ setProcessOrder, setSuccessOrder, setOrderError }) =>
         setProcessOrder(true)
         setSuccessOrder(false)
         if (paymentId || user.email) {
-            fetch('https://arcane-sierra-30035.herokuapp.com/place-order', {
+            fetch('http://localhost:3001/place-order', {
                 method: "POST",
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -54,8 +54,7 @@ const CheckoutPayment = ({ setProcessOrder, setSuccessOrder, setOrderError }) =>
         <div className="checkoutPayment row">
             <div className="col-sm-8">
                 <h4 className="mb-5">Payment</h4>
-                <div className="card">
-                    
+                <div className="card mb-4">
                     <div className="card-body">
                         <h5>Select Your Payment Option</h5>
                         <div class="accordion mt-4 paymentItems position-relative" id="accordionExample">

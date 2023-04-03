@@ -21,13 +21,13 @@ const SomeFeaturedProducts = () => {
     useEffect(() => {
         if (hmpMenu === "all") {
             setProduct(null)
-            fetch("https://arcane-sierra-30035.herokuapp.com/products")
+            fetch("http://localhost:3001/products")
                 .then(res => res.json())
                 .then(data => setProduct(data.splice(0, 6)))
                 .catch(err => console.log(err.message))
         } else {
             setProduct(null)
-            fetch("https://arcane-sierra-30035.herokuapp.com/products/men/" + hmpMenu)
+            fetch("http://localhost:3001/products/men/" + hmpMenu)
                 .then(res => res.json())
                 .then(data => setProduct(data.splice(0, 6)))
                 .catch(err => console.log(err.message))

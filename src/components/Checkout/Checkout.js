@@ -1,5 +1,5 @@
 import { CheckCircleFillIcon } from '@primer/octicons-react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../../CartContext/CartContext';
 import './Checkout.css';
@@ -10,18 +10,33 @@ const Checkout = () => {
 
     const [payment, setPayment] = useState(false)
     const [addressAdded, setAddressAdded] = useState(false)
+    const [addressDeleted, setAddressDeleted] = useState(null)
     const [processOrder, setProcessOrder] = useState(false)
     const [successOrder, setSuccessOrder] = useState(false)
     const [orderError, setOrderError] = useState(false)
 
     const { cartItems } = useCart()
 
+    useEffect(() => {
+        if (addressAdded) {
+            setTimeout(() => {
+                setAddressAdded(false)
+            }, 4000)
+        }
+
+        if (addressDeleted) {
+            setTimeout(() => {
+                setAddressDeleted(null)
+            }, 4000)
+        }
+    }, [addressAdded, addressDeleted])
+
     return (
         <div className="checkoutComp mb-5">
             {
                 successOrder ?
-                    <div className="orderSuccessMessage d-flex justify-content-center align-items-center" style={{margin: "20vh 0"}}>
-                        <div className="w-25 card rounded text-center py-4">
+                    <div className="orderSuccessMessage d-flex justify-content-center align-items-center" style={{ margin: "20vh 0" }}>
+                        <div className=" card rounded text-center p-4" style={{ maxWidth: "400px" }}>
                             <div className="card-body">
                                 <h4 className="mb-5">Order Placed Successful.</h4>
                                 <a href="/" className="btn btn-outline-info px-5">Continue Shopping</a>
@@ -41,18 +56,26 @@ const Checkout = () => {
                         <div className="container">
                             <div className="checkoutMain">
                                 {
+                                    addressDeleted &&
+                                    <div class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
+                                        <CheckCircleFillIcon size='16' fill="#FFC107" />
+                                        <span className="ms-2">Address Deleted.</span>
+                                        {/* <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> */}
+                                    </div>
+                                }
+                                {
                                     addressAdded &&
                                     <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
                                         <CheckCircleFillIcon size='16' fill="green" />
                                         <span className="ms-2">Address Added.</span>
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        {/* <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> */}
                                     </div>
                                 }
                                 {
                                     cartItems?.length ?
                                         <>
                                             <div className="checkoutProgress d-flex justify-content-center mt-4">
-                                                <div className="w-50">
+                                                <div className="" style={{ width: "550px" }}>
                                                     <div className="d-flex">
                                                         <div className="w-50 checkoutProgressShipping text-center">
                                                             <CheckCircleFillIcon size='30' fill="#0DCAF0" />
@@ -73,7 +96,7 @@ const Checkout = () => {
                                                     payment ?
                                                         <CheckoutPayment setProcessOrder={setProcessOrder} setSuccessOrder={setSuccessOrder} setOrderError={setOrderError} />
                                                         :
-                                                        <CheckoutShipping setPayment={setPayment} addressAdded={addressAdded} setAddressAdded={setAddressAdded} />
+                                                        <CheckoutShipping addressDeleted={addressDeleted} setAddressDeleted={setAddressDeleted} setPayment={setPayment} addressAdded={addressAdded} setAddressAdded={setAddressAdded} />
                                                 }
                                             </div>
                                         </>

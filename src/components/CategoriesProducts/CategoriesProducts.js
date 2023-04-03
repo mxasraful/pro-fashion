@@ -13,7 +13,7 @@ const CategoriesProducts = ({ men }) => {
     const path = useParams()
 
     useEffect(() => {
-        fetch(`https://arcane-sierra-30035.herokuapp.com/products/${men ? "men" : "women"}/${path.cate}`)
+        fetch(`http://localhost:3001/products/${men ? "men" : "women"}/${path.cate}`)
             .then(res => res.json())
             .then(data => {
                 setProducts(data)

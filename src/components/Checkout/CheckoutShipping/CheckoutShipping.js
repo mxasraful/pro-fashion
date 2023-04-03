@@ -6,7 +6,7 @@ import AddAddress from '../AddAddress/AddAddress';
 import AddressItem from '../AddressItem/AddressItem';
 import SummeryItem from '../SummeryItem/SummeryItem';
 
-const CheckoutShipping = ({ setPayment, addressAdded, setAddressAdded }) => {
+const CheckoutShipping = ({ addressDeleted, setAddressDeleted, setPayment, addressAdded, setAddressAdded }) => {
 
     const [loading, setLoading] = useState(false)
     const [fetchError, serFetchError] = useState(false)
@@ -35,7 +35,7 @@ const CheckoutShipping = ({ setPayment, addressAdded, setAddressAdded }) => {
     // get users address
     useEffect(() => {
         setLoading(true)
-        fetch(`https://arcane-sierra-30035.herokuapp.com/address/${user?.email}`)
+        fetch(`http://localhost:3001/address/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 if (data.length > 0) {
@@ -53,7 +53,7 @@ const CheckoutShipping = ({ setPayment, addressAdded, setAddressAdded }) => {
                 serFetchError(true)
                 setLoading(false)
             })
-    }, [user, addressAdded])
+    }, [user, addressAdded, addressDeleted])
 
     // Hide Address added message
     useEffect(() => {
@@ -78,7 +78,7 @@ const CheckoutShipping = ({ setPayment, addressAdded, setAddressAdded }) => {
                                         <div className="have-address-section">
                                             {
                                                 userAddressValue.map(dt => (
-                                                    <AddressItem userAddressValue={userAddressValue} selectedAddress={selectedAddress} dt={dt} setSelectedAddress={setSelectedAddress} />
+                                                    <AddressItem setAddressDeleted={setAddressDeleted} userAddressValue={userAddressValue} selectedAddress={selectedAddress} dt={dt} setSelectedAddress={setSelectedAddress} />
                                                 ))
                                             }
                                         </div>

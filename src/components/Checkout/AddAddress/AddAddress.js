@@ -24,7 +24,7 @@ const AddAddress = ({ setAddressAdded }) => {
 
     // Get all districts data
     useEffect(() => {
-        fetch('https://arcane-sierra-30035.herokuapp.com/districts')
+        fetch('http://localhost:3001/districts')
             .then(res => res.json())
             .then(data => setBdDistricts(data))
     }, [])
@@ -47,7 +47,7 @@ const AddAddress = ({ setAddressAdded }) => {
     // Add a users address
     const addAnAddress = (e) => {
         setLoading(true)
-        fetch('https://arcane-sierra-30035.herokuapp.com/add-address', {
+        fetch('http://localhost:3001/add-address', {
             method: "post",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -94,8 +94,6 @@ const AddAddress = ({ setAddressAdded }) => {
         selectedDistrict,
         inputTerms
     ])
-
-    console.log(availableSave)
 
     return (
         <div className="addAddress mt-5">

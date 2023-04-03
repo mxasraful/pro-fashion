@@ -1,5 +1,5 @@
 import { PencilIcon } from '@primer/octicons-react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../auth/auth';
 import './Dashboard.css'
@@ -9,8 +9,12 @@ const Dashboard = () => {
     const [displayName, setDisplayName] = useState(null)
     const [email, setEmail] = useState(null)
     const [emailInvalid, setEmailInvalid] = useState(false)
+    const [userOrdersHave, setUserOrdersHave] = useState(null)
+    const [userOrderItems, setUserOrderItems] = useState(null)
 
     const { user, updateUserInfo, updateProfileErr, logOut } = useAuth()
+
+    const userToken = localStorage.getItem("pro-fashion-user-id")
 
     // Handle Update profile
     const handleUpdateProfile = () => {
@@ -38,6 +42,28 @@ const Dashboard = () => {
             })
         }
     }
+
+    // Get user order items
+    useEffect(() => {
+        fetch("http://localhost:3001/user-order-items", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                authorization: `Bearer ${userToken}`
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            setUserOrdersHave(true)
+            setUserOrderItems()
+            console.log(data)
+        })
+        .catch(err => {
+            console.log(err.message)
+        })
+    }, [userToken])
+
+    console.log(userOrderItems)
 
 
     return (
@@ -104,10 +130,34 @@ const Dashboard = () => {
                                         <div className="card-body">
                                             <h4>My Orders</h4>
                                             <div className="dashMyOrders">
-                                                <div className="text-center">
-                                                    <span>Sorry you don't have any order.</span><br /><br />
-                                                    <Link to="/" className="btn btn-outline-success px-3 btn-sm">Order Now</Link>
-                                                </div>
+                                                {
+                                                    userOrdersHave === null ?
+                                                        <div className="text-center">
+                                                            <div className='mb-4'>Loading...</div>
+                                                        </div>
+                                                        : userOrdersHave === false ?
+                                                            <div className="text-center">
+                                                                <div className='mb-4'>Sorry you don't have any order.</div>
+                                                                <Link to="/" className="btn btn-outline-success px-3 btn-sm">Order Now</Link>
+                                                            </div>
+                                                            : userOrdersHave === true ?
+                                                                <div className='userOrderItems'>
+                                                                    {
+                                                                        userOrderItems?.map(item =>
+                                                                            <div className='userOrderItem card w-100'>
+                                                                                <div className="card-body">
+                                                                                    <h2>Order</h2>
+                                                                                </div>
+                                                                            </div>
+                                                                        )
+                                                                    }
+                                                                </div>
+                                                                :
+                                                                <div className="text-center">
+                                                                    <div className='mb-4'>Sorry you don't have any order.</div>
+                                                                    <Link to="/" className="btn btn-outline-success px-3 btn-sm">Order Now</Link>
+                                                                </div>
+                                                }
                                             </div>
                                         </div>
                                     </div>
